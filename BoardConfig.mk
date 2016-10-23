@@ -29,6 +29,11 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 
+# Optimizations
+STRICT_ALIASING := true
+POLLY_OPTS := true
+GRAPHITE_OPTS := true
+
 ENABLE_CPUSETS := true
 
 BOARD_KERNEL_BASE        := 0x00000000
