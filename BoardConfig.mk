@@ -30,6 +30,8 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 
 # Optimizations
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
 STRICT_ALIASING := true
 POLLY_OPTS := true
 GRAPHITE_OPTS := true
