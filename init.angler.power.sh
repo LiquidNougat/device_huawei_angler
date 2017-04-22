@@ -115,3 +115,19 @@ get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # change GPU initial power level from 305MHz(level 4) to 180MHz(level 5) for power savings
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+
+# Thermal configuration
+write /sys/module/msm_thermal/core_control/enabled 0
+write /sys/module/msm_thermal/parameters/enabled Y
+write /sys/module/msm_thermal/parameters/limit_temp_degC 68
+
+# I/O scheduler - FIOPS - 2KB
+write /sys/block/mmcblk0/queue/scheduler fiops
+write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+
+# Sound settings
+write /sys/kernel/sound_control/speaker_gain "20 20"
+write /sys/kernel/sound_control/headphone_pa_gain "1 1"
+write /sys/kernel/sound_control/mic_gain 10
+write /sys/kernel/sound_control/headphone_gain "8 8"
+write /sys/kernel/sound_control_3/highperf_enabled 0
