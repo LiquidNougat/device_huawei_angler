@@ -32,20 +32,15 @@ TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 TARGET_2ND_CPU_FEATURES := div,atomic_ldrd_strd,armv8a
 
 # Optimizations
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
-
 STRICT_ALIASING := true
-POLLY_OPTS := true
 GRAPHITE_OPTS := true
-
-ENABLE_CPUSETS := true
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=angler androidboot.console=none msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3,4-7 no_console_suspend
+BOARD_KERNEL_CMDLINE := androidboot.hardware=angler androidboot.console=none msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3,4-7
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 # Audio
@@ -113,7 +108,7 @@ BOARD_SEPOLICY_DIRS += \
 
 TARGET_USES_64_BIT_BINDER := true
 
-TARGET_USES_AOSP := true
+#TARGET_USES_AOSP := true
 
 TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub
 
@@ -146,10 +141,6 @@ HWUI_COMPILE_FOR_PERF := true
 #NFC
 NXP_CHIP_TYPE := 2
 
-# Testing related defines
-BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
-
-# User Clang instead of GCC
 USE_CLANG_PLATFORM_BUILD := true
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
@@ -159,3 +150,5 @@ TARGET_GCC_VERSION_ARM64 := 6.x
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := angler_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+
+TARGET_KEYMASTER_WAIT_FOR_QSEE := true
